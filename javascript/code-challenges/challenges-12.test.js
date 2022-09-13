@@ -10,7 +10,7 @@ const replaceZeros = (string) => {
 
 
   let reg = /0/g;
-  return string.replace(reg, 'zero');
+  return string.replace(regde ., 'zero');
 };
 
 
@@ -73,8 +73,11 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
-  // Solution code here...
+
+  let reg = /^\w+(\.\w+)?@\w+\.(net|org|com)$/;
+  return reg.test(email) ?  true: false;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -98,7 +101,8 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
+  let reg = /^((\(\d{3}\))|(\d{3}))[ -]?\d{3}[ -]?\d{4}$/;
+  return reg.test(phoneNumber) ?  true: false;
 };
 
 /* ------------------------------------------------------------------------------------------------
