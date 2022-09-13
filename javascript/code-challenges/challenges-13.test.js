@@ -3,13 +3,17 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function named longestString that takes in an array of strings and returns the index position of the longest string. 
+Write a function named longestString that takes in an array of strings and returns the index position of the longest string.
 ------------------------------------------------------------------------------------------------ */
 
 const longestString = (arr) => {
-// Solution code here...
+  let largest = '';
+  arr.forEach(function(item) {
+    if (item.length > largest.length) largest = item
+  });
+  return largest
 };
-  
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -19,7 +23,9 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
-  // Solution code here...
+
+  let newArray = arr.map(item => item.charAt(0));
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -31,7 +37,13 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  // Solution code here...
+  let find = [];
+  arr.forEach(item => {
+    if (item.includes(':)')) {
+      find.push(item);
+    }
+  });
+  return find;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -43,11 +55,13 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
+  let numArr = [];
+  arr.forEach(item => numArr.push(item.substring(1, 4) + item.substring(6, 9) + item.substring(10, 14)));
+  return numArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 5 
+CHALLENGE 5
 
 Write a function named onlyOddChars that takes in a string and returns only the odd-index characters from that string.
 
@@ -55,17 +69,36 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  let newStr = '';
+  for (let i = 0; i < str.length; i++) {
+    if (!(i % 2 == 0)) {
+      newStr += str.substring(i, i + 1);
+    }
+  }
+  return newStr;
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 6 
+CHALLENGE 6
 
 Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  let result = '';
+  let newArr = arr.map(item => {
+    if (item.includes(':)')) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  if (newArr.includes(false)) {
+    result = false;
+  } else {
+    result = true;
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
